@@ -4,15 +4,15 @@ plugins {
     id("maven-publish")
 }
 
+group = "com.github.itsburhan126"
+version = "v1.0.4"
+
 android {
     namespace = "com.network.burhansecurenet"
     compileSdk = 34
 
     defaultConfig {
         minSdk = 21
-        
-        // Library version
-        version = "v1.0.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -33,13 +33,12 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
 
-// Maven publishing configuration
 afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("release") {
                 from(components["release"])
-                
+
                 groupId = "com.github.itsburhan126"
                 artifactId = "BurhanSecureNet"
                 version = "v1.0.4"
