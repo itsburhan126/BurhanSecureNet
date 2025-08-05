@@ -13,7 +13,6 @@ android {
 
     defaultConfig {
         minSdk = 21
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -39,7 +38,7 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
 
-                groupId = "com.github.itsburhan126"
+                groupId = "com.github.itsburhan126" // ✅ FIXED
                 artifactId = "BurhanSecureNet"
                 version = "v1.0.4"
             }
