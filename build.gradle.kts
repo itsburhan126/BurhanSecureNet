@@ -35,11 +35,10 @@ dependencies {
 publishing {
     publications {
         create<MavenPublication>("release") {
+            from(components["release"])
             groupId = "com.github.itsburhan126"
             artifactId = "BurhanSecureNet"
             version = "v1.0.5"
-
-            artifact("$buildDir/outputs/aar/BurhanSecureNet-release.aar")
         }
     }
 }
