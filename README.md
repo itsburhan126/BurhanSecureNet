@@ -1,44 +1,23 @@
-<h1 align="center">🚀 BurhanSecureNet</h1>
+# BurhanSecureNet
 
-<p align="center">
-  <a href="https://jitpack.io/#itsburhan126/BurhanSecureNet"><img src="https://jitpack.io/v/itsburhan126/BurhanSecureNet.svg" alt="JitPack"></a>
-</p>
+A lightweight networking library for Android that provides utilities for network connectivity checking, secure HTTP requests, and network diagnostics.
 
-<p align="center">
-  <strong>Advanced Secure Networking Solution built with Kotlin for Android, implementing hybrid AES+RSA encryption.</strong>
-</p>
+## Features
 
-<p align="center">
-  <a href="#features">Features</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#technologies-used">Technologies Used</a> •
-  <a href="#contributing">Contributing</a> •
-  <a href="#license">License</a>
-</p>
+- Check network availability
+- Determine network type (WiFi, Mobile, etc.)
+- Check if a specific URL is reachable
+- Mobile network type detection (2G, 3G, 4G, 5G)
+- WiFi signal strength measurement
+- Metered connection detection
+- Simple HTTP client for GET and POST requests
+- Logging utilities
 
-<hr />
+## Installation
 
-<h2 id="features">✨ Features</h2>
-<ul>
-  <li>Hybrid encryption using AES for data and RSA for key exchange</li>
-  <li>Secure communication protocols optimized for Android apps</li>
-  <li>Clean and modular Kotlin code architecture</li>
-  <li>Easy integration with secure backend services</li>
-  <li>Detailed logging and error handling for secure data transmission</li>
-  <li>Network connectivity checking</li>
-  <li>Secure logging utilities</li>
-  <li>Version tracking</li>
-  <li>Simple integration</li>
-</ul>
+### Step 1: Add JitPack repository
 
-<h2 id="installation">🛠️ Installation</h2>
-
-<h3>Option 1: Using JitPack</h3>
-
-<h4>Step 1: Add the JitPack repository to your build file</h4>
-
-<p>Add it in your root build.gradle at the end of repositories:</p>
+Add the JitPack repository to your root build.gradle at the end of repositories:
 
 ```gradle
 allprojects {
@@ -49,48 +28,40 @@ allprojects {
 }
 ```
 
-<p>Or in settings.gradle.kts:</p>
+Or in settings.gradle.kts (Kotlin DSL):
 
 ```kotlin
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        google()
-        mavenCentral()
+        ...
         maven { url = uri("https://jitpack.io") }
     }
 }
 ```
 
-<h4>Step 2: Add the dependency</h4>
+### Step 2: Add the dependency
+
+Add the dependency to your app's build.gradle:
 
 ```gradle
 dependencies {
-    implementation 'com.github.itsburhan126:BurhanSecureNet:1.0.3'
+    implementation 'com.github.itsburhan126:BurhanSecureNet:1.0.4'
 }
 ```
 
-<h3>Option 2: Manual Setup</h3>
-<p>Follow these steps to set up the Android project in your development environment:</p>
+Or in build.gradle.kts (Kotlin DSL):
 
-```
-# Clone the repository
-git clone https://github.com/itsburhan126/BurhanSecureNet.git
-
-# Open Android Studio
-
-# Choose "Open an Existing Project" and select the cloned repository folder
-
-# Allow Android Studio to sync and download all Gradle dependencies automatically
-
-# Connect your Android device via USB (with USB debugging enabled) or start an emulator
-
-# Build and run the app using the "Run" button or Shift + F10
+```kotlin
+dependencies {
+    implementation("com.github.itsburhan126:BurhanSecureNet:1.0.4")
+}
 ```
 
-<h2 id="usage">🎯 Usage</h2>
+**Note:** Make sure to check [JitPack](https://jitpack.io/#itsburhan126/BurhanSecureNet) for the latest version tag.
 
-<h3>Check Network Availability</h3>
+## Usage
+
+### Check Network Availability
 
 ```kotlin
 import com.network.burhansecurenet.BurhanSecureNet
@@ -98,66 +69,170 @@ import com.network.burhansecurenet.BurhanSecureNet
 // Check if network is available
 val isNetworkAvailable = BurhanSecureNet.isNetworkAvailable(context)
 if (isNetworkAvailable) {
-    // Perform network operations
+    // Network is available, proceed with network operations
 } else {
-    // Show network error message
+    // Network is not available, show error message
 }
 ```
 
-<h3>Logging</h3>
+### Get Network Type
 
 ```kotlin
-// Log a message
-BurhanSecureNet.logMessage("MyActivity", "This is a log message")
+import com.network.burhansecurenet.BurhanSecureNet
+
+// Get the current network type
+val networkType = BurhanSecureNet.getNetworkType(context)
+when (networkType) {
+    "WIFI" -> {
+        // Connected to WiFi
+    }
+    "MOBILE" -> {
+        // Connected to mobile data
+    }
+    "NONE" -> {
+        // No network connection
+    }
+    else -> {
+        // Other network types (ETHERNET, BLUETOOTH, VPN, etc.)
+    }
+}
 ```
 
-<h3>Get Library Version</h3>
+### Check URL Reachability
 
 ```kotlin
+import com.network.burhansecurenet.BurhanSecureNet
+
+// Check if a URL is reachable
+BurhanSecureNet.isUrlReachable("https://example.com") { isReachable ->
+    if (isReachable) {
+        // URL is reachable
+    } else {
+        // URL is not reachable
+    }
+}
+
+// With custom timeout (in milliseconds)
+BurhanSecureNet.isUrlReachable("https://example.com", 10000) { isReachable ->
+    // Handle result
+}
+```
+
+### Mobile Network Type Detection
+
+```kotlin
+import com.network.burhansecurenet.NetworkUtils
+
+// Get mobile network type (2G, 3G, 4G, 5G)
+val mobileNetworkType = NetworkUtils.getMobileNetworkType(context)
+when (mobileNetworkType) {
+    "2G" -> {
+        // Connected to 2G network
+    }
+    "3G" -> {
+        // Connected to 3G network
+    }
+    "4G" -> {
+        // Connected to 4G network
+    }
+    "5G" -> {
+        // Connected to 5G network
+    }
+    "NOT_MOBILE" -> {
+        // Not connected to a mobile network
+    }
+    else -> {
+        // Unknown mobile network type
+    }
+}
+```
+
+### WiFi Signal Strength
+
+```kotlin
+import com.network.burhansecurenet.NetworkUtils
+
+// Get WiFi signal strength as percentage (0-100)
+val wifiSignalStrength = NetworkUtils.getWifiSignalStrength(context)
+if (wifiSignalStrength >= 0) {
+    // Use the signal strength value (0-100)
+} else {
+    // Not connected to WiFi
+}
+```
+
+### Metered Connection Detection
+
+```kotlin
+import com.network.burhansecurenet.NetworkUtils
+
+// Check if connected to a metered network
+val isMetered = NetworkUtils.isMeteredConnection(context)
+if (isMetered) {
+    // Connected to a metered network (like mobile data)
+    // Consider reducing data usage
+} else {
+    // Connected to an unmetered network (like WiFi)
+}
+```
+
+### HTTP Client
+
+```kotlin
+import com.network.burhansecurenet.HttpClient
+
+// Make a GET request
+HttpClient.get(context, "https://api.example.com/data") { response ->
+    if (response.code in 200..299) {
+        // Success - use response.body
+        val data = response.body
+    } else {
+        // Error - handle response.error
+    }
+}
+
+// Make a POST request
+val jsonBody = "{\"name\":\"John\",\"age\":30}"
+val headers = mapOf("Content-Type" to "application/json")
+
+HttpClient.post(context, "https://api.example.com/users", jsonBody, headers) { response ->
+    if (response.code in 200..299) {
+        // Success - use response.body
+        val data = response.body
+    } else {
+        // Error - handle response.error
+    }
+}
+```
+
+### Logging
+
+```kotlin
+import com.network.burhansecurenet.BurhanSecureNet
+
+// Log debug message
+BurhanSecureNet.logDebug("TAG", "Debug message")
+
+// Log error message
+BurhanSecureNet.logError("TAG", "Error message")
+
+// Log info message
+BurhanSecureNet.logInfo("TAG", "Info message")
+```
+
+### Get Library Version
+
+```kotlin
+import com.network.burhansecurenet.BurhanSecureNet
+
 // Get the current library version
 val version = BurhanSecureNet.getVersion()
 ```
 
-<h3>Secure Data Transmission</h3>
-<p>After launching the app, it will:</p>
-<ul>
-  <li>Perform secure hybrid encryption of data before sending to backend services</li>
-  <li>Handle encrypted responses and securely decrypt data on the client side</li>
-  <li>Provide smooth UI for secure networking tasks</li>
-</ul>
+## License
 
-<h2 id="technologies-used">⚙️ Technologies Used</h2>
-<ul>
-  <li>Kotlin (Android)</li>
-  <li>Android Jetpack Components</li>
-  <li>OkHttp (HTTP client)</li>
-  <li>Hybrid Encryption (AES + RSA)</li>
-  <li>Gradle Build System</li>
-</ul>
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-<h2 id="contributing">🤝 Contributing</h2>
-<p>Contributions are welcome! Please fork the repo, create feature branches, and submit pull requests. Report issues and suggest improvements.</p>
+## Author
 
-<h2 id="license">📄 License</h2>
-
-```
-Copyright 2023 Md Burhan Uddin
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
-
-<hr />
-
-<p align="center">
-  Made with ❤️ by <a href="https://github.com/itsburhan126">Md Burhan Uddin</a>
-</p>
+Md Burhan Uddin
