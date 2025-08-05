@@ -1,21 +1,44 @@
-# BurhanSecureNet
+<h1 align="center">🚀 BurhanSecureNet</h1>
 
-[![](https://jitpack.io/v/burhanuddin/BurhanSecureNet.svg)](https://jitpack.io/#burhanuddin/BurhanSecureNet)
+<p align="center">
+  <a href="https://jitpack.io/#burhanuddin/BurhanSecureNet"><img src="https://jitpack.io/v/burhanuddin/BurhanSecureNet.svg" alt="JitPack"></a>
+</p>
 
-A secure networking utility library for Android applications.
+<p align="center">
+  <strong>Advanced Secure Networking Solution built with Kotlin for Android, implementing hybrid AES+RSA encryption.</strong>
+</p>
 
-## Features
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#technologies-used">Technologies Used</a> •
+  <a href="#contributing">Contributing</a> •
+  <a href="#license">License</a>
+</p>
 
-- Network connectivity checking
-- Secure logging utilities
-- Version tracking
-- Simple integration
+<hr />
 
-## Installation
+<h2 id="features">✨ Features</h2>
+<ul>
+  <li>Hybrid encryption using AES for data and RSA for key exchange</li>
+  <li>Secure communication protocols optimized for Android apps</li>
+  <li>Clean and modular Kotlin code architecture</li>
+  <li>Easy integration with secure backend services</li>
+  <li>Detailed logging and error handling for secure data transmission</li>
+  <li>Network connectivity checking</li>
+  <li>Secure logging utilities</li>
+  <li>Version tracking</li>
+  <li>Simple integration</li>
+</ul>
 
-### Step 1: Add the JitPack repository to your build file
+<h2 id="installation">🛠️ Installation</h2>
 
-Add it in your root build.gradle at the end of repositories:
+<h3>Option 1: Using JitPack</h3>
+
+<h4>Step 1: Add the JitPack repository to your build file</h4>
+
+<p>Add it in your root build.gradle at the end of repositories:</p>
 
 ```gradle
 allprojects {
@@ -26,7 +49,7 @@ allprojects {
 }
 ```
 
-Or in settings.gradle.kts:
+<p>Or in settings.gradle.kts:</p>
 
 ```kotlin
 dependencyResolutionManagement {
@@ -39,17 +62,35 @@ dependencyResolutionManagement {
 }
 ```
 
-### Step 2: Add the dependency
+<h4>Step 2: Add the dependency</h4>
 
 ```gradle
 dependencies {
-    implementation 'com.github.burhanuddin:BurhanSecureNet:1.0.3'
+    implementation 'com.github.itsburhan126:BurhanSecureNet:1.0.3'
 }
 ```
 
-## Usage
+<h3>Option 2: Manual Setup</h3>
+<p>Follow these steps to set up the Android project in your development environment:</p>
 
-### Check Network Availability
+```
+# Clone the repository
+git clone https://github.com/itsburhan126/BurhanSecureNet.git
+
+# Open Android Studio
+
+# Choose "Open an Existing Project" and select the cloned repository folder
+
+# Allow Android Studio to sync and download all Gradle dependencies automatically
+
+# Connect your Android device via USB (with USB debugging enabled) or start an emulator
+
+# Build and run the app using the "Run" button or Shift + F10
+```
+
+<h2 id="usage">🎯 Usage</h2>
+
+<h3>Check Network Availability</h3>
 
 ```kotlin
 import com.network.burhansecurenet.BurhanSecureNet
@@ -63,21 +104,41 @@ if (isNetworkAvailable) {
 }
 ```
 
-### Logging
+<h3>Logging</h3>
 
 ```kotlin
 // Log a message
 BurhanSecureNet.logMessage("MyActivity", "This is a log message")
 ```
 
-### Get Library Version
+<h3>Get Library Version</h3>
 
 ```kotlin
 // Get the current library version
 val version = BurhanSecureNet.getVersion()
 ```
 
-## License
+<h3>Secure Data Transmission</h3>
+<p>After launching the app, it will:</p>
+<ul>
+  <li>Perform secure hybrid encryption of data before sending to backend services</li>
+  <li>Handle encrypted responses and securely decrypt data on the client side</li>
+  <li>Provide smooth UI for secure networking tasks</li>
+</ul>
+
+<h2 id="technologies-used">⚙️ Technologies Used</h2>
+<ul>
+  <li>Kotlin (Android)</li>
+  <li>Android Jetpack Components</li>
+  <li>OkHttp (HTTP client)</li>
+  <li>Hybrid Encryption (AES + RSA)</li>
+  <li>Gradle Build System</li>
+</ul>
+
+<h2 id="contributing">🤝 Contributing</h2>
+<p>Contributions are welcome! Please fork the repo, create feature branches, and submit pull requests. Report issues and suggest improvements.</p>
+
+<h2 id="license">📄 License</h2>
 
 ```
 Copyright 2023 Md Burhan Uddin
@@ -94,3 +155,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+
+<hr />
+
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/itsburhan126">Md Burhan Uddin</a>
+</p>
