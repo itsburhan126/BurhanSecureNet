@@ -1,7 +1,7 @@
 <h1 align="center">🚀 BurhanSecureNet</h1>
 
 <p align="center">
-  <a href="https://jitpack.io/#burhanuddin/BurhanSecureNet"><img src="https://jitpack.io/v/burhanuddin/BurhanSecureNet.svg" alt="JitPack"></a>
+  <a href="https://jitpack.io/#itsburhan126/BurhanSecureNet"><img src="https://jitpack.io/v/itsburhan126/BurhanSecureNet.svg" alt="JitPack"></a>
 </p>
 
 <p align="center">
