@@ -1,7 +1,7 @@
 <h1 align="center">🚀 BurhanSecureNet</h1>
 
 <p align="center">
-  <strong>Advanced Secure Networking Solution built with best practices for professional-grade security and performance.</strong>
+  <strong>Advanced Secure Networking Solution built with Kotlin for Android, implementing hybrid AES+RSA encryption.</strong>
 </p>
 
 <p align="center">
@@ -17,61 +17,48 @@
 
 <h2 id="features">✨ Features</h2>
 <ul>
-  <li>Robust encryption methods ensuring data confidentiality and integrity.</li>
-  <li>Hybrid AES+RSA encryption implementation for secure data transmission.</li>
-  <li>Highly configurable secure networking components.</li>
-  <li>Easy integration with Laravel backend and Android client apps.</li>
-  <li>Optimized performance with minimal latency and overhead.</li>
+  <li>Hybrid encryption using AES for data and RSA for key exchange.</li>
+  <li>Secure communication protocols optimized for Android apps.</li>
+  <li>Clean and modular Kotlin code architecture.</li>
+  <li>Easy integration with secure backend services.</li>
+  <li>Detailed logging and error handling for secure data transmission.</li>
 </ul>
 
 <h2 id="installation">🛠️ Installation</h2>
-<p>Follow these steps to get started with BurhanSecureNet:</p>
+<p>Follow these steps to set up the Android project in your development environment:</p>
 <pre><code># Clone the repository
 git clone https://github.com/itsburhan126/BurhanSecureNet.git
 
-# Navigate into the project directory
-cd BurhanSecureNet
+# Open Android Studio
 
-# Install backend dependencies (if Laravel backend present)
-composer install
+# Choose "Open an Existing Project" and select the cloned repository folder
 
-# Set up environment variables
-cp .env.example .env
-# Edit .env to add your database and encryption keys configuration
+# Allow Android Studio to sync and download all Gradle dependencies automatically
 
-# Generate application key (Laravel)
-php artisan key:generate
+# Connect your Android device via USB (with USB debugging enabled) or start an emulator
 
-# Run database migrations (if applicable)
-php artisan migrate
-
-# For Android client setup, open the Android project in Android Studio and sync Gradle
-
-# Build and run the Android app via Android Studio
+# Build and run the app using the "Run" button or <kbd>Shift</kbd> + <kbd>F10</kbd>
 </code></pre>
 
 <h2 id="usage">🎯 Usage</h2>
-<p>After installation, you can start the backend server and connect your Android client to it securely:</p>
-<pre><code># Start Laravel backend server
-php artisan serve
-
-# Launch Android app from Android Studio or install APK on device
-
-# The app will securely communicate with the backend using hybrid encryption methods implemented in the project.
-</code></pre>
+<p>After launching the app, it will:</p>
+<ul>
+  <li>Perform secure hybrid encryption of data before sending to backend services.</li>
+  <li>Handle encrypted responses and securely decrypt data on the client side.</li>
+  <li>Provide smooth UI for secure networking tasks.</li>
+</ul>
 
 <h2 id="technologies-used">⚙️ Technologies Used</h2>
 <ul>
-  <li>Laravel (PHP Framework)</li>
-  <li>Android (Kotlin)</li>
-  <li>Hybrid Encryption: AES + RSA</li>
-  <li>MySQL / MariaDB (optional database)</li>
-  <li>OkHttp (HTTP client for Android)</li>
-  <li>Git & GitHub for version control</li>
+  <li>Kotlin (Android)</li>
+  <li>Android Jetpack Components</li>
+  <li>OkHttp (HTTP client)</li>
+  <li>Hybrid Encryption (AES + RSA)</li>
+  <li>Gradle Build System</li>
 </ul>
 
 <h2 id="contributing">🤝 Contributing</h2>
-<p>Contributions are welcome! Feel free to submit issues, fork the repository, and create pull requests. Please check <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> for detailed guidelines.</p>
+<p>Contributions are welcome! Please fork the repo, create feature branches, and submit pull requests. Report issues and suggest improvements.</p>
 
 <h2 id="license">📄 License</h2>
 <p>This project is licensed under the MIT License — see the <a href="LICENSE">LICENSE</a> file for details.</p>
