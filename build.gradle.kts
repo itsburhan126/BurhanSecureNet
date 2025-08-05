@@ -1,43 +1,44 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
+    id("com.android.library")
+    kotlin("android")
+    id("maven-publish")
 }
 
 android {
-    namespace = "com.network.burhansecurenet"
-    compileSdk = 36
+    compileSdk = 34
 
     defaultConfig {
-        minSdk = 24
+        minSdk = 21
+        targetSdk = 34
+        
+        // Library version
+        version = "1.0.3"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
         }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
     }
 }
 
 dependencies {
+    implementation("androidx.core:core-ktx:1.12.0")
+}
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+// Maven publishing configuration
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                
+                groupId = "com.github.burhanuddin"
+                artifactId = "BurhanSecureNet"
+                version = "1.0.3"
+            }
+        }
+    }
 }
