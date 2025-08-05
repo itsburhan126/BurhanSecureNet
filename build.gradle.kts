@@ -12,7 +12,7 @@ android {
         minSdk = 21
         
         // Library version
-        version = "1.0.4"
+        version = "v1.0.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -42,7 +42,7 @@ afterEvaluate {
                 
                 groupId = "com.github.itsburhan126"
                 artifactId = "BurhanSecureNet"
-                version = "1.0.4"
+                version = "v1.0.4"
             }
         }
     }

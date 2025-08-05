@@ -45,7 +45,7 @@ Add the dependency to your app's build.gradle:
 
 ```gradle
 dependencies {
-    implementation 'com.github.itsburhan126:BurhanSecureNet:1.0.4'
+    implementation 'com.github.itsburhan126:BurhanSecureNet:v1.0.4'
 }
 ```
 
@@ -53,7 +53,7 @@ Or in build.gradle.kts (Kotlin DSL):
 
 ```kotlin
 dependencies {
-    implementation("com.github.itsburhan126:BurhanSecureNet:1.0.4")
+    implementation("com.github.itsburhan126:BurhanSecureNet:v1.0.4")
 }
 ```
 
