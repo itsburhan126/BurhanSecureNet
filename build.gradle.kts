@@ -32,7 +32,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
 
-// ✅ FIXED publishing configuration – no nested afterEvaluate
 publishing {
     publications {
         create<MavenPublication>("release") {
@@ -40,7 +39,6 @@ publishing {
             artifactId = "BurhanSecureNet"
             version = "v1.0.5"
 
-            // Explicitly add the AAR artifact
             artifact("$buildDir/outputs/aar/BurhanSecureNet-release.aar")
         }
     }
