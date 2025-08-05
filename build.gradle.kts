@@ -40,7 +40,8 @@ publishing {
             artifactId = "BurhanSecureNet"
             version = "v1.0.5"
 
-            artifact("$buildDir/outputs/aar/${project.name}-release.aar") // ✅ Explicit artifact path
+            // Explicitly add the AAR artifact
+            artifact("$buildDir/outputs/aar/BurhanSecureNet-release.aar")
         }
     }
 }
