@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.github.itsburhan126"
-version = "v1.0.4"
+version = "v1.0.5" // ✅ Updated version here
 
 android {
     namespace = "com.network.burhansecurenet"
@@ -32,16 +32,15 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components["release"])
+// ✅ FIXED publishing configuration – no nested afterEvaluate
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            groupId = "com.github.itsburhan126"
+            artifactId = "BurhanSecureNet"
+            version = "v1.0.5"
 
-                groupId = "com.github.itsburhan126" // ✅ FIXED
-                artifactId = "BurhanSecureNet"
-                version = "v1.0.4"
-            }
+            artifact("$buildDir/outputs/aar/${project.name}-release.aar") // ✅ Explicit artifact path
         }
     }
 }
